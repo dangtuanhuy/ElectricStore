@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="11d6632e17404fe88fc692f5b11f4a04" Name="Diagram1" ZoomLevel="87">
+        <EntityTypeShape EntityType="ElectricStoreModel.About" Width="1.5" PointX="5.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Branch" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Category" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Color" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Contact" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Customer" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Employee" Width="1.5" PointX="0.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Employee_Role" Width="1.5" PointX="6" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Menu" Width="1.5" PointX="5.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Order" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.OrderDetail" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Product" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Product_Promotion" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Promition" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Region" Width="1.5" PointX="1.5" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Role" Width="1.5" PointX="3.75" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Shipper" Width="1.5" PointX="0.75" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Size" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.Supplier" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElectricStoreModel.sysdiagram" Width="1.5" PointX="7.75" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Product_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Employee_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Employee_Role_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Order_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Employee_Role_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Order_Shipper" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_OrderDetails_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_OrderDetails_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Product_Promotion_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Product_Size" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Product_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="ElectricStoreModel.FK_Product_Promotion_Promition" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

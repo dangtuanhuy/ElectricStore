@@ -191,6 +191,7 @@
     <Compile Include="Areas\Administrator\Controllers\ShippersController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SizesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SuppliersController.cs" />
+    <Compile Include="Areas\Administrator\Models\RegionMetaData.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

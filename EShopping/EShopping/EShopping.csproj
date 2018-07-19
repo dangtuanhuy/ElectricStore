@@ -209,6 +209,8 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Administrator\Models\CategoryMetaData.cs" />
+    <Content Include="Models\CategoryMetaData.txt" />
     <Compile Include="Models\Color.cs">
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
@@ -1422,7 +1424,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administrator\Models\" />
     <Folder Include="Content\UploadImg\" />
     <Folder Include="Document\CMD\" />
     <Folder Include="Document\Data Flow\" />

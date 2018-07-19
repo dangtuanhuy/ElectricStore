@@ -5,7 +5,7 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2 class="text-center">Edit Regions</h2>
 
 
 @using (Html.BeginForm())
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Region</h4>
+    
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.RegionId)
@@ -43,7 +43,12 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Index", "Regions")" class="btn btn-default">
+        <i class="fa fa-sort-alpha-asc"></i>
+        <span>
+
+        </span>
+    </a>
 </div>
 
 @section Scripts {

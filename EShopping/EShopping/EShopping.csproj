@@ -174,15 +174,25 @@
     <Compile Include="Areas\Administrator\Controllers\AboutsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administrator\Controllers\BranchesController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\ColorsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\ContactsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\EmployeesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\MenusController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\OrderDetailsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\Product_PromotionController.cs" />
     <Compile Include="Areas\Administrator\Controllers\PromitionsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\RegionsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\RolesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\ShippersController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SizesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SuppliersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -231,6 +241,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Menu.cs">
+      <DependentUpon>ElectricStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\News.cs">
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
@@ -1140,7 +1153,6 @@
     <Content Include="InnoDB\ElectricStore.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\Administrator\Views\web.config" />
     <Content Include="Content\LibAdmin\dist\css\adminlte.css.map" />
     <Content Include="Content\LibAdmin\dist\js\adminlte.js.map" />
     <Content Include="Content\LibAdmin\dist\js\adminlte.min.js.map" />
@@ -1202,8 +1214,6 @@
       <DependentUpon>ElectricStore.edmx</DependentUpon>
       <LastGenOutput>ElectricStore.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\Administrator\Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Areas\Administrator\Views\Admin\Index.cshtml" />
     <Content Include="Content\LibAdmin\plugins\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Content\LibAdmin\plugins\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Content\LibAdmin\plugins\bootstrap\css\bootstrap-reboot.css.map" />
@@ -1255,11 +1265,22 @@
     <Content Include="Content\LibAdmin\plugins\popper\umd\popper-utils.min.js.map" />
     <Content Include="Content\LibAdmin\plugins\popper\umd\popper.js.map" />
     <Content Include="Content\LibAdmin\plugins\popper\umd\popper.min.js.map" />
-    <Content Include="Areas\Administrator\Views\Sizes\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Sizes\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Sizes\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Sizes\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Sizes\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Abouts\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Abouts\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Abouts\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Abouts\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Abouts\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Branches\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Branches\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Branches\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Branches\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Branches\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Categories\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Colors\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Colors\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Colors\Details.cshtml" />
@@ -1270,41 +1291,74 @@
     <Content Include="Areas\Administrator\Views\Contacts\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Contacts\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Contacts\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Branches\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Branches\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Branches\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Branches\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Branches\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Abouts\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Abouts\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Abouts\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Abouts\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Abouts\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Menus\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Menus\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Menus\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Menus\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Menus\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Shippers\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Shippers\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Shippers\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Shippers\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Shippers\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Suppliers\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Suppliers\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Suppliers\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Suppliers\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Suppliers\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Regions\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Regions\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Regions\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Regions\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Regions\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Regions\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Regions\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Regions\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Regions\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Regions\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shippers\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shippers\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shippers\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shippers\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shippers\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Sizes\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Sizes\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Sizes\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Sizes\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Sizes\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Suppliers\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Suppliers\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Suppliers\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Suppliers\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Suppliers\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1317,6 +1371,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="UploadImg\News\Img.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1353,6 +1408,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1360,6 +1416,7 @@
     <Folder Include="Content\UploadImg\" />
     <Folder Include="Document\CMD\" />
     <Folder Include="Document\Data Flow\" />
+    <Folder Include="UploadImg\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EShopping.Models.Region>
+﻿@model IEnumerable<EShopping.Models.Role>
 
 @{
     ViewBag.Title = "Index";
@@ -8,7 +8,7 @@
 <h2 class="text-center">Region</h2>
 
 <p>
-    <a href="@Url.Action("Create", "Regions")" class="btn btn-info">
+    <a href="@Url.Action("Create", "Roles")" class="btn btn-info">
         <i class="fa fa-floppy-o"></i>
         <span>
 
@@ -19,10 +19,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.RegionName)
+                @Html.DisplayNameFor(model => model.RoleName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RegionDescription)
+                @Html.DisplayNameFor(model => model.RoleDescription)
             </th>
             <th></th>
         </tr>
@@ -32,27 +32,27 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.RegionName)
+                    @Html.DisplayFor(modelItem => item.RoleName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.RegionDescription)
+                    @Html.DisplayFor(modelItem => item.RoleDescription)
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit", "Regions", new { id = item.RegionId })" class="btn btn-success">
+                    <a href="@Url.Action("Edit", "Roles", new { id = item.Id })" class="btn btn-success">
                         <i class="fa fa-flash"></i>
                         <span>
 
                         </span>
                     </a>
                     |
-                    <a href="@Url.Action("Details", "Regions", new { id = item.RegionId })" class="btn btn-primary">
+                    <a href="@Url.Action("Details", "Roles", new { id = item.Id })" class="btn btn-primary">
                         <i class="fa fa-list-alt"></i>
                         <span>
 
                         </span>
                     </a>
                     |
-                    <a href="@Url.Action("Delete", "Regions", new { id = item.RegionId })" class="btn btn-danger">
+                    <a href="@Url.Action("Delete", "Roles", new { id = item.Id })" class="btn btn-danger">
                         <i class="fa fa-trash"></i>
                         <span>
 
@@ -63,6 +63,7 @@
         }
     </tbody>
 </table>
+
 @section Scripts {
     <script type="text/javascript">
         $(document).ready(function () {

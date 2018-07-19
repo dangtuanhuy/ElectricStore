@@ -1,0 +1,43 @@
+﻿@model EShopping.Models.Product_Promotion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product_Promotion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gift)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gift)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProduceCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProduceCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Promition.PromotionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Promition.PromotionName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

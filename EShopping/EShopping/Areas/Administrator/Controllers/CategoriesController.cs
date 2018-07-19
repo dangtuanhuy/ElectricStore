@@ -10,108 +10,107 @@ using EShopping.Models;
 
 namespace EShopping.Areas.Administrator.Controllers
 {
-    public class ContactsController : Controller
+    public class CategoriesController : Controller
     {
         private ElectricStoreEntities db = new ElectricStoreEntities();
 
-        // GET: Administrator/Contacts
+        // GET: Administrator/Categories
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
+            return View(db.Categories.ToList());
         }
 
-        // GET: Administrator/Contacts/Details/5
+        // GET: Administrator/Categories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(category);
         }
 
-        // GET: Administrator/Contacts/Create
+        // GET: Administrator/Categories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Administrator/Contacts/Create
+        // POST: Administrator/Categories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
+        public ActionResult Create([Bind(Include = "CategoryId,CategoryName,CategoryDetails")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
+                db.Categories.Add(category);
                 db.SaveChanges();
-                return RedirectToAction("~/Views/Home/Index.cshtml");
+                return RedirectToAction("Index");
             }
 
-            return View(contact);
+            return View(category);
         }
 
-
-        // GET: Administrator/Contacts/Edit/5
+        // GET: Administrator/Categories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(category);
         }
 
-        // POST: Administrator/Contacts/Edit/5
+        // POST: Administrator/Categories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
+        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName,CategoryDetails")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contact).State = EntityState.Modified;
+                db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contact);
+            return View(category);
         }
 
-        // GET: Administrator/Contacts/Delete/5
+        // GET: Administrator/Categories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(category);
         }
 
-        // POST: Administrator/Contacts/Delete/5
+        // POST: Administrator/Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Contact contact = db.Contacts.Find(id);
-            db.Contacts.Remove(contact);
+            Category category = db.Categories.Find(id);
+            db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

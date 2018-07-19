@@ -7,111 +7,129 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EShopping.Models;
+using System.IO;
 
 namespace EShopping.Areas.Administrator.Controllers
 {
-    public class ContactsController : Controller
+    public class NewsController : Controller
     {
         private ElectricStoreEntities db = new ElectricStoreEntities();
 
-        // GET: Administrator/Contacts
+        // GET: Administrator/News
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
+            return View(db.News.ToList());
         }
 
-        // GET: Administrator/Contacts/Details/5
+        // GET: Administrator/News/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            News news = db.News.Find(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(news);
         }
 
-        // GET: Administrator/Contacts/Create
+        // GET: Administrator/News/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Administrator/Contacts/Create
+        // POST: Administrator/News/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
+        public ActionResult Create([Bind(Include = "NewsId,NewsDetails,NewsBy,NewsImgs")] News news)
         {
             if (ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
+                // Lấy các file được upload lưu vào CSDL + copy vào thư mục UploadedFiles
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    var file = Request.Files[i];
+
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        if (file.ContentLength > 0)
+                        {
+                            string _FileName = Path.GetFileName(file.FileName);
+
+                            string _path = Path.Combine(Server.MapPath("~/UploadImg/News"), _FileName);
+                            file.SaveAs(_path);
+                            news.NewsImgs = _FileName;
+                        }
+                    }
+                }
+
+                db.News.Add(news);
                 db.SaveChanges();
-                return RedirectToAction("~/Views/Home/Index.cshtml");
+                return RedirectToAction("Index");
             }
 
-            return View(contact);
+            return View(news);
         }
 
-
-        // GET: Administrator/Contacts/Edit/5
+        // GET: Administrator/News/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            News news = db.News.Find(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(news);
         }
 
-        // POST: Administrator/Contacts/Edit/5
+        // POST: Administrator/News/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
+        public ActionResult Edit([Bind(Include = "NewsId,NewsDetails,NewsBy,NewsImgs")] News news)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contact).State = EntityState.Modified;
+                db.Entry(news).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contact);
+            return View(news);
         }
 
-        // GET: Administrator/Contacts/Delete/5
+        // GET: Administrator/News/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            News news = db.News.Find(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(news);
         }
 
-        // POST: Administrator/Contacts/Delete/5
+        // POST: Administrator/News/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Contact contact = db.Contacts.Find(id);
-            db.Contacts.Remove(contact);
+            News news = db.News.Find(id);
+            db.News.Remove(news);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

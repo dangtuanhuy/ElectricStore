@@ -230,17 +230,18 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("Index", "Colors")" class="nav-link">
                                         <i class="fa fa-certificate  nav-icon"></i>
                                         <p>Color</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("Index", "Categories")" class="nav-link">
                                         <i class="fa fa-newspaper-o nav-icon"></i>
                                         <p>Category</p>
                                     </a>
                                 </li>
+
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fa fa-server nav-icon"></i>
@@ -316,6 +317,12 @@
                                     <a href="#" class="nav-link">
                                         <i class="fa fa-address-book nav-icon"></i>
                                         <p>Shipper</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "Regions")" class="nav-link">
+                                        <i class="fa fa-address-card nav-icon"></i>
+                                        <p>Region</p>
                                     </a>
                                 </li>
                             </ul>
@@ -604,6 +611,9 @@
     <script src="~/Content/LibAdmin/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <link href="~/Content/LibAdmin/plugins/datatables/jquery.dataTables.css" rel="stylesheet" />
+    <script src="~/Content/LibAdmin/plugins/datatables/jquery.dataTables.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
@@ -637,6 +647,8 @@
     <script src="~/Content/LibAdmin/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/Content/LibAdmin/dist/js/demo.js"></script>
+    
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

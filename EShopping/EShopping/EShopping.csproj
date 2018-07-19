@@ -177,6 +177,7 @@
     <Compile Include="Areas\Administrator\Controllers\ColorsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\MenusController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\NewsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\PromitionsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\RegionsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\ShippersController.cs" />
@@ -231,6 +232,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Menu.cs">
+      <DependentUpon>ElectricStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\News.cs">
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
@@ -1305,6 +1309,11 @@
     <Content Include="Areas\Administrator\Views\Promitions\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

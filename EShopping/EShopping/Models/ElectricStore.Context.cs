@@ -45,5 +45,6 @@ namespace EShopping.Models
         public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<News> News { get; set; }
     }
 }

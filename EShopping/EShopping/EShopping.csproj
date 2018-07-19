@@ -185,6 +185,7 @@
     <Compile Include="Areas\Administrator\Controllers\SizesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SuppliersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1270,7 +1271,6 @@
     <Content Include="Areas\Administrator\Views\Colors\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Colors\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Colors\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Contacts\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Contacts\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Contacts\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Contacts\Edit.cshtml" />
@@ -1310,16 +1310,13 @@
     <Content Include="Areas\Administrator\Views\Promitions\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\News\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Contacts\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1369,6 +1366,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

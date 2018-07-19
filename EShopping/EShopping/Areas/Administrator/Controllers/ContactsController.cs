@@ -52,11 +52,12 @@ namespace EShopping.Areas.Administrator.Controllers
             {
                 db.Contacts.Add(contact);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("~/Views/Home/Index.cshtml");
             }
 
             return View(contact);
         }
+
 
         // GET: Administrator/Contacts/Edit/5
         public ActionResult Edit(int? id)

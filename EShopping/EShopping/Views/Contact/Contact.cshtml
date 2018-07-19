@@ -11,14 +11,16 @@
             <div class="col span_2_of_3">
                 <div class="contact-form">
                     <h2>Contact Us</h2>
-                   @using (Html.BeginForm())
-                   {
+                    @using (Html.BeginForm())
+                    {
                         @Html.AntiForgeryToken()
                         <div>
                             <span><label>@Html.LabelFor(model => model.ContactName, htmlAttributes: new { @class = "" })</label></span>
-                            <span>@Html.EditorFor(model => model.ContactName, new { htmlAttributes = new { @class = "textbox" } })
-                            @Html.ValidationMessageFor(model => model.ContactName, "", new { @class = "text-danger" })</span>
-                        </div>
+                            <span>
+                                @Html.EditorFor(model => model.ContactName, new { htmlAttributes = new { @class = "textbox" } })
+                            @Html.ValidationMessageFor(model => model.ContactName, "", new { @class = "text-danger" })
+                        </span>
+                    </div>
                         <div>
                             <span>@Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "" })</span>
                             <span>
@@ -28,41 +30,53 @@
                         </div>
                         <div>
                             <span><label>@Html.LabelFor(model => model.City, htmlAttributes: new { @class = "" })</label></span>
-                            <span>@Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "textbox" } })
-                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })</span>
-                        </div>
+                            <span>
+                                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "textbox" } })
+                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                        </span>
+                    </div>
                         <div>
                             <span><label>@Html.LabelFor(model => model.Fax, htmlAttributes: new { @class = "" })</label></span>
-                            <span>@Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "textbox" } })
-                            @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })</span>
-                        </div>
+                            <span>
+                                @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "textbox" } })
+                            @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
+                        </span>
+                    </div>
                         <div>
                             <span><label>@Html.LabelFor(model => model.Region, htmlAttributes: new { @class = "" })</label></span>
-                            <span>@Html.EditorFor(model => model.Region, new { htmlAttributes = new { @class = "textbox" } })
-                            @Html.ValidationMessageFor(model => model.Region, "", new { @class = "text-danger" })</span>
-                        </div>
+                            <span>
+                                @Html.EditorFor(model => model.Region, new { htmlAttributes = new { @class = "textbox" } })
+                            @Html.ValidationMessageFor(model => model.Region, "", new { @class = "text-danger" })
+                        </span>
+                    </div>
                         <div>
                             <span><label>@Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "" })</label></span>
-                            <span>@Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class ="textbox" } })
-                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })</span>
-                        </div>
+                            <span>
+                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "textbox" } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </span>
+                    </div>
                         <div>
                             <span><label>@Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "" })</label></span>
-                            <span>@Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })</span>
-                        </div>
+                            <span>
+                                @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                        </span>
+                    </div>
                         <div>
                             <span><label>@Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "" })</label></span>
-                            <span>@Html.TextAreaFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })</span>
-                        </div>
+                            <span>
+                                @Html.TextAreaFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </span>
+                    </div>
                         <div>
                             <span><input type="submit" value="Submit" class="myButton"></span>
                         </div>
-                   }
+                    }
                 </div>
             </div>
-            
+
             <div class="col span_1_of_3">
                 <div class="contact_info">
                     <h3>Find Us Here</h3>
@@ -85,6 +99,6 @@
     </div>
 </div>
  </div>
-    @section Scripts {
+@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    }
+}

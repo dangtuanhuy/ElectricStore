@@ -1310,7 +1310,6 @@
     <Content Include="Areas\Administrator\Views\Promitions\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\News\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\News\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\News\Edit.cshtml" />
@@ -1320,6 +1319,7 @@
     <Content Include="Areas\Administrator\Views\Categories\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1368,15 +1368,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
-    <Content Include="Views\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrator\Models\" />
-    <Folder Include="Content\UploadImg\News\" />
-    <Folder Include="Content\UploadImg\Products\" />
     <Folder Include="Document\CMD\" />
     <Folder Include="Document\Data Flow\" />
+    <Folder Include="UploadImg\News\" />
+    <Folder Include="UploadImg\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

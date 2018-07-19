@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EShopping.Models;
+using System.IO;
 
 namespace EShopping.Areas.Administrator.Controllers
 {
@@ -50,6 +51,24 @@ namespace EShopping.Areas.Administrator.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Lấy các file được upload lưu vào CSDL + copy vào thư mục UploadedFiles
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    var file = Request.Files[i];
+
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        if (file.ContentLength > 0)
+                        {
+                            string _FileName = Path.GetFileName(file.FileName);
+
+                            string _path = Path.Combine(Server.MapPath("~/UploadImg/News"), _FileName);
+                            file.SaveAs(_path);
+                            news.NewsImgs = _FileName;
+                        }
+                    }
+                }
+
                 db.News.Add(news);
                 db.SaveChanges();
                 return RedirectToAction("Index");

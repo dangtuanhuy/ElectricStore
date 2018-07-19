@@ -15,6 +15,7 @@ namespace EShopping.Models
     public partial class News
     {
         public int NewsId { get; set; }
+        public string NewTitles { get; set; }
         public string NewsDetails { get; set; }
         public string NewsBy { get; set; }
         public string NewsImgs { get; set; }

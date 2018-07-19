@@ -115,6 +115,7 @@
             <PropertyRef Name="NewsId" />
           </Key>
           <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewTitles" Type="nvarchar" MaxLength="50" />
           <Property Name="NewsDetails" Type="nvarchar(max)" />
           <Property Name="NewsBy" Type="nvarchar" MaxLength="50" />
           <Property Name="NewsImgs" Type="nvarchar(max)" />
@@ -1065,6 +1066,7 @@
             <PropertyRef Name="NewsId" />
           </Key>
           <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewTitles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NewsDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NewsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NewsImgs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1330,6 +1332,7 @@
                 <ScalarProperty Name="NewsImgs" ColumnName="NewsImgs" />
                 <ScalarProperty Name="NewsBy" ColumnName="NewsBy" />
                 <ScalarProperty Name="NewsDetails" ColumnName="NewsDetails" />
+                <ScalarProperty Name="NewTitles" ColumnName="NewTitles" />
                 <ScalarProperty Name="NewsId" ColumnName="NewsId" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -51,7 +51,6 @@ namespace EShopping.Areas.Administrator.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Lấy các file được upload lưu vào CSDL + copy vào thư mục UploadedFiles
                 for (int i = 0; i < Request.Files.Count; i++)
                 {
                     var file = Request.Files[i];
@@ -68,7 +67,6 @@ namespace EShopping.Areas.Administrator.Controllers
                         }
                     }
                 }
-
                 db.News.Add(news);
                 db.SaveChanges();
                 return RedirectToAction("Index");

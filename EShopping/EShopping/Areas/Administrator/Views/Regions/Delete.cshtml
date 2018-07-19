@@ -33,9 +33,16 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <button type="submit" class="btn btn-danger" aria-label="Left Align">
+            <span class="fa fa-trash" aria-hidden="true"></span>
+        </button> |
+        <a href="@Url.Action("Index", "Regions")" class="btn btn-default">
+            <i class="fa fa-sort-alpha-asc"></i>
+            <span>
+
+            </span>
+        </a>
+    </div>
     }
 </div>

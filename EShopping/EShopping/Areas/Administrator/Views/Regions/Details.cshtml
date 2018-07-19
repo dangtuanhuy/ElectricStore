@@ -5,10 +5,10 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">Details Regions</h2>
 
 <div>
-    <h4>Region</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -30,6 +30,17 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RegionId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", "Regions", new { id = Model.RegionId })" class="btn btn-default">
+        <i class="fa fa-flash"></i>
+        <span>
+
+        </span>
+    </a>
+    |
+    <a href="@Url.Action("Index", "Regions")" class="btn btn-default">
+        <i class="fa fa-sort-alpha-desc"></i>
+        <span>
+
+        </span>
+    </a>
 </p>

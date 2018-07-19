@@ -1332,6 +1332,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="UploadImg\News\Img.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1374,7 +1375,6 @@
     <Folder Include="Areas\Administrator\Models\" />
     <Folder Include="Document\CMD\" />
     <Folder Include="Document\Data Flow\" />
-    <Folder Include="UploadImg\News\" />
     <Folder Include="UploadImg\Products\" />
   </ItemGroup>
   <ItemGroup>

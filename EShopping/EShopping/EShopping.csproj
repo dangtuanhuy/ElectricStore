@@ -1362,6 +1362,7 @@
 =======
     <Content Include="Areas\Administrator\Views\Contacts\Create.cshtml" />
 >>>>>>> 5a7277d6ce3b89c34405d5e46d63998fd561413d
+    <Content Include="Areas\Administrator\Views\Contacts\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

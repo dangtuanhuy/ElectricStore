@@ -33,5 +33,11 @@ namespace EShopping.Controllers
             ViewBag.Branchs = db.Branches.ToList();
             return PartialView("_BranchPartial");
         }
+        public ActionResult Category()
+        {
+            ViewBag.Categories = db.Categories.ToList();
+            //var lstCate = from CAT in db.Categories select CAT;
+            return PartialView("_CategoryPartial");
+        }
     }
 }

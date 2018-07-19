@@ -10,108 +10,107 @@ using EShopping.Models;
 
 namespace EShopping.Areas.Administrator.Controllers
 {
-    public class ContactsController : Controller
+    public class CustomersController : Controller
     {
         private ElectricStoreEntities db = new ElectricStoreEntities();
 
-        // GET: Administrator/Contacts
+        // GET: Administrator/Customers
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
+            return View(db.Customers.ToList());
         }
 
-        // GET: Administrator/Contacts/Details/5
-        public ActionResult Details(int? id)
+        // GET: Administrator/Customers/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(customer);
         }
 
-        // GET: Administrator/Contacts/Create
+        // GET: Administrator/Customers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Administrator/Contacts/Create
+        // POST: Administrator/Customers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
+        public ActionResult Create([Bind(Include = "CustomerCode,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
-                db.SaveChanges();
-                return RedirectToAction("~/Views/Home/Index.cshtml");
-            }
-
-            return View(contact);
-        }
-
-
-        // GET: Administrator/Contacts/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
-
-        // POST: Administrator/Contacts/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(contact).State = EntityState.Modified;
+                db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contact);
+
+            return View(customer);
         }
 
-        // GET: Administrator/Contacts/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Administrator/Customers/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(customer);
         }
 
-        // POST: Administrator/Contacts/Delete/5
+        // POST: Administrator/Customers/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "CustomerCode,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(customer).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(customer);
+        }
+
+        // GET: Administrator/Customers/Delete/5
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
+        }
+
+        // POST: Administrator/Customers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Contact contact = db.Contacts.Find(id);
-            db.Contacts.Remove(contact);
+            Customer customer = db.Customers.Find(id);
+            db.Customers.Remove(customer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

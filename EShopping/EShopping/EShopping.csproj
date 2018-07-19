@@ -177,14 +177,22 @@
     <Compile Include="Areas\Administrator\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\ColorsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\ContactsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\EmployeesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\MenusController.cs" />
     <Compile Include="Areas\Administrator\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\OrderDetailsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\Product_PromotionController.cs" />
     <Compile Include="Areas\Administrator\Controllers\PromitionsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\RegionsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\RolesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\ShippersController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SizesController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SuppliersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1270,7 +1278,6 @@
     <Content Include="Areas\Administrator\Views\Colors\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Colors\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Colors\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Contacts\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Contacts\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Contacts\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Contacts\Edit.cshtml" />
@@ -1310,16 +1317,51 @@
     <Content Include="Areas\Administrator\Views\Promitions\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Promitions\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Categories\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\News\Create.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Areas\Administrator\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Product_Promotion\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\OrderDetails\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Employees\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Index.cshtml" />
+=======
+    <Content Include="Areas\Administrator\Views\Contacts\Create.cshtml" />
+>>>>>>> 5a7277d6ce3b89c34405d5e46d63998fd561413d
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1369,6 +1411,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

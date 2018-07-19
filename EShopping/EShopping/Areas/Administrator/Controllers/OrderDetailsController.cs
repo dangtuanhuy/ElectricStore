@@ -10,108 +10,116 @@ using EShopping.Models;
 
 namespace EShopping.Areas.Administrator.Controllers
 {
-    public class ContactsController : Controller
+    public class OrderDetailsController : Controller
     {
         private ElectricStoreEntities db = new ElectricStoreEntities();
 
-        // GET: Administrator/Contacts
+        // GET: Administrator/OrderDetails
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
+            var orderDetails = db.OrderDetails.Include(o => o.Order).Include(o => o.Product);
+            return View(orderDetails.ToList());
         }
 
-        // GET: Administrator/Contacts/Details/5
+        // GET: Administrator/OrderDetails/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            OrderDetail orderDetail = db.OrderDetails.Find(id);
+            if (orderDetail == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(orderDetail);
         }
 
-        // GET: Administrator/Contacts/Create
+        // GET: Administrator/OrderDetails/Create
         public ActionResult Create()
         {
+            ViewBag.OrderId = new SelectList(db.Orders, "OrderId", "CustomerCode");
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProduceCode");
             return View();
         }
 
-        // POST: Administrator/Contacts/Create
+        // POST: Administrator/OrderDetails/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
+        public ActionResult Create([Bind(Include = "OrderId,ProductId,SoldPrice,OriginalPrice,Quantity")] OrderDetail orderDetail)
         {
             if (ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
+                db.OrderDetails.Add(orderDetail);
                 db.SaveChanges();
-                return RedirectToAction("~/Views/Home/Index.cshtml");
+                return RedirectToAction("Index");
             }
 
-            return View(contact);
+            ViewBag.OrderId = new SelectList(db.Orders, "OrderId", "CustomerCode", orderDetail.OrderId);
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProduceCode", orderDetail.ProductId);
+            return View(orderDetail);
         }
 
-
-        // GET: Administrator/Contacts/Edit/5
+        // GET: Administrator/OrderDetails/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            OrderDetail orderDetail = db.OrderDetails.Find(id);
+            if (orderDetail == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            ViewBag.OrderId = new SelectList(db.Orders, "OrderId", "CustomerCode", orderDetail.OrderId);
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProduceCode", orderDetail.ProductId);
+            return View(orderDetail);
         }
 
-        // POST: Administrator/Contacts/Edit/5
+        // POST: Administrator/OrderDetails/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
+        public ActionResult Edit([Bind(Include = "OrderId,ProductId,SoldPrice,OriginalPrice,Quantity")] OrderDetail orderDetail)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contact).State = EntityState.Modified;
+                db.Entry(orderDetail).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contact);
+            ViewBag.OrderId = new SelectList(db.Orders, "OrderId", "CustomerCode", orderDetail.OrderId);
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProduceCode", orderDetail.ProductId);
+            return View(orderDetail);
         }
 
-        // GET: Administrator/Contacts/Delete/5
+        // GET: Administrator/OrderDetails/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            OrderDetail orderDetail = db.OrderDetails.Find(id);
+            if (orderDetail == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(orderDetail);
         }
 
-        // POST: Administrator/Contacts/Delete/5
+        // POST: Administrator/OrderDetails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Contact contact = db.Contacts.Find(id);
-            db.Contacts.Remove(contact);
+            OrderDetail orderDetail = db.OrderDetails.Find(id);
+            db.OrderDetails.Remove(orderDetail);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

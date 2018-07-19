@@ -10,108 +10,107 @@ using EShopping.Models;
 
 namespace EShopping.Areas.Administrator.Controllers
 {
-    public class ContactsController : Controller
+    public class RolesController : Controller
     {
         private ElectricStoreEntities db = new ElectricStoreEntities();
 
-        // GET: Administrator/Contacts
+        // GET: Administrator/Roles
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
+            return View(db.Roles.ToList());
         }
 
-        // GET: Administrator/Contacts/Details/5
+        // GET: Administrator/Roles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Role role = db.Roles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(role);
         }
 
-        // GET: Administrator/Contacts/Create
+        // GET: Administrator/Roles/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Administrator/Contacts/Create
+        // POST: Administrator/Roles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
+        public ActionResult Create([Bind(Include = "Id,RoleName,RoleDescription")] Role role)
         {
             if (ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
+                db.Roles.Add(role);
                 db.SaveChanges();
-                return RedirectToAction("~/Views/Home/Index.cshtml");
+                return RedirectToAction("Index");
             }
 
-            return View(contact);
+            return View(role);
         }
 
-
-        // GET: Administrator/Contacts/Edit/5
+        // GET: Administrator/Roles/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Role role = db.Roles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(role);
         }
 
-        // POST: Administrator/Contacts/Edit/5
+        // POST: Administrator/Roles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactId,CompanyName,ContactName,Address,City,Region,PostalCode,Country,Phone,Extension,Fax,Status")] Contact contact)
+        public ActionResult Edit([Bind(Include = "Id,RoleName,RoleDescription")] Role role)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contact).State = EntityState.Modified;
+                db.Entry(role).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contact);
+            return View(role);
         }
 
-        // GET: Administrator/Contacts/Delete/5
+        // GET: Administrator/Roles/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Role role = db.Roles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(role);
         }
 
-        // POST: Administrator/Contacts/Delete/5
+        // POST: Administrator/Roles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Contact contact = db.Contacts.Find(id);
-            db.Contacts.Remove(contact);
+            Role role = db.Roles.Find(id);
+            db.Roles.Remove(role);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

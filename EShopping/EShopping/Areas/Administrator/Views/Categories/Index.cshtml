@@ -8,7 +8,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Createee", "Categories")" class="btn btn-info">
+        <i class="fa fa-floppy-o"></i>
+        <span>
+
+        </span>
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -38,3 +43,12 @@
 }
 
 </table>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tablefillset').DataTable();
+
+
+        });
+    </script>
+}

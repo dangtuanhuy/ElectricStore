@@ -210,7 +210,6 @@
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Administrator\Models\CategoryMetaData.cs" />
-    <Content Include="Models\CategoryMetaData.txt" />
     <Compile Include="Models\Color.cs">
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>

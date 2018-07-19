@@ -1368,11 +1368,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrator\Models\" />
-    <Folder Include="Content\UploadImg\" />
+    <Folder Include="Content\UploadImg\News\" />
+    <Folder Include="Content\UploadImg\Products\" />
     <Folder Include="Document\CMD\" />
     <Folder Include="Document\Data Flow\" />
   </ItemGroup>

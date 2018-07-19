@@ -11,6 +11,7 @@ namespace EShopping.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Region
     {
@@ -21,8 +22,13 @@ namespace EShopping.Models
         }
     
         public int RegionId { get; set; }
+
+        [Display(Name = "Region")]
+   
         public string RegionName { get; set; }
-        public string RegionDescription { get; set; }
+
+        [Display(Name = "Description")]
+        [Required(ErrorMessage = "Description can not null")] public string RegionDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employees { get; set; }

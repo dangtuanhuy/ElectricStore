@@ -11,9 +11,23 @@ namespace EShopping.Controllers
     {
         ElectricStoreEntities db = new ElectricStoreEntities();
         // GET: New
-        public ActionResult News()
+        public ActionResult News(string sortOrder, string searchString)
         {
-            var lstNew = db.News.OrderByDescending(n => n.NewsId).ToList();
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var lstNew = from s in db.News
+                         select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                lstNew = lstNew.Where(s => s.NewTitles.Contains(searchString)
+                                       || s.NewsBy.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    lstNew = lstNew.OrderByDescending(s => s.NewsId);
+                    break;
+            }
             return View(lstNew);
         }
     }

@@ -6,6 +6,14 @@
 }
 
 <h2>News</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by Title or by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <div class="main">
     <div class="content">
 @foreach (var item in Model) {
@@ -14,7 +22,7 @@
                 @Html.DisplayFor(modelItem => item.NewsImgs)
             </div>
             <div class="grid news_desc">
-                <h3>@Html.DisplayFor(modelItem => item.NewDetails) </h3>
+                <h3>@Html.DisplayFor(modelItem => item.NewTitles) </h3>
                 <h4>Posted on Aug 13th, 2013 by <span><a href="#">@Html.DisplayFor(modelItem => item.NewsBy)</a></span></h4>
                 <p>@Html.DisplayFor(modelItem => item.NewDetails)<a href="#" title="more">[....]</a></p>
             </div>

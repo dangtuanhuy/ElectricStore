@@ -204,13 +204,13 @@
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Areas\Administrator\Models\CategoryMetaData.cs" />
     <Compile Include="Models\Branch.cs">
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Administrator\Models\CategoryMetaData.cs" />
     <Compile Include="Models\Color.cs">
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
@@ -1200,23 +1200,6 @@
     <Content Include="Content\LibUser\font\Amble-Regular-webfont.ttf" />
     <Content Include="Content\LibUser\images\Thumbs.db" />
     <Content Include="InnoDB\DB.zip" />
-    <EntityDeploy Include="Models\ElectricStore.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ElectricStore.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ElectricStore.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-      <LastGenOutput>ElectricStore.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ElectricStore.edmx.diagram">
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ElectricStore.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-      <LastGenOutput>ElectricStore.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\LibAdmin\plugins\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Content\LibAdmin\plugins\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Content\LibAdmin\plugins\bootstrap\css\bootstrap-reboot.css.map" />
@@ -1367,6 +1350,23 @@
     <Content Include="Areas\Administrator\Views\News\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\News\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\News\Index.cshtml" />
+    <EntityDeploy Include="Models\ElectricStore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ElectricStore.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ElectricStore.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ElectricStore.edmx</DependentUpon>
+      <LastGenOutput>ElectricStore.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ElectricStore.edmx.diagram">
+      <DependentUpon>ElectricStore.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ElectricStore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ElectricStore.edmx</DependentUpon>
+      <LastGenOutput>ElectricStore.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1421,6 +1421,7 @@
     <Content Include="Views\Home\Branch.cshtml" />
     <Content Include="Views\Home\Category.cshtml" />
     <Content Include="Views\Shared\_CategoryPartial.cshtml" />
+    <Content Include="Views\New\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1428,7 +1429,6 @@
     <Folder Include="Document\CMD\" />
     <Folder Include="Document\Data Flow\" />
     <Folder Include="UploadImg\Products\" />
-    <Folder Include="Views\New\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

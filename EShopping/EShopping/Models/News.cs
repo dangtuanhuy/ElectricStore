@@ -16,7 +16,7 @@ namespace EShopping.Models
     {
         public int NewsId { get; set; }
         public string NewTitles { get; set; }
-        public string NewsDetails { get; set; }
+        public string NewDetails { get; set; }
         public string NewsBy { get; set; }
         public string NewsImgs { get; set; }
     }

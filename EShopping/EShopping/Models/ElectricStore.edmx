@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ElectricStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ElectricStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="About">
           <Key>
             <PropertyRef Name="AboutId" />
@@ -116,7 +116,7 @@
           </Key>
           <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NewTitles" Type="nvarchar" MaxLength="50" />
-          <Property Name="NewsDetails" Type="nvarchar(max)" />
+          <Property Name="NewDetails" Type="nvarchar(max)" />
           <Property Name="NewsBy" Type="nvarchar" MaxLength="50" />
           <Property Name="NewsImgs" Type="nvarchar(max)" />
         </EntityType>
@@ -522,7 +522,8 @@
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ElectricStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -638,6 +639,16 @@
           <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MenuDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewTitles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewsImgs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -992,6 +1003,7 @@
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Employee_Role" EntityType="Self.Employee_Role" />
           <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="News" EntityType="Self.News" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="Products" EntityType="Self.Product" />
@@ -1059,18 +1071,7 @@
             <End Role="Promition" EntitySet="Promitions" />
             <End Role="Product_Promotion" EntitySet="Product_Promotion" />
           </AssociationSet>
-          <EntitySet Name="News" EntityType="ElectricStoreModel.News" />
         </EntityContainer>
-        <EntityType Name="News">
-          <Key>
-            <PropertyRef Name="NewsId" />
-          </Key>
-          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NewTitles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NewsDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NewsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NewsImgs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1187,6 +1188,17 @@
                 <ScalarProperty Name="MenuId" ColumnName="MenuId" />
                 <ScalarProperty Name="MenuName" ColumnName="MenuName" />
                 <ScalarProperty Name="MenuDescription" ColumnName="MenuDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="ElectricStoreModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="NewTitles" ColumnName="NewTitles" />
+                <ScalarProperty Name="NewDetails" ColumnName="NewDetails" />
+                <ScalarProperty Name="NewsBy" ColumnName="NewsBy" />
+                <ScalarProperty Name="NewsImgs" ColumnName="NewsImgs" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1323,17 +1335,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="News">
-            <EntityTypeMapping TypeName="ElectricStoreModel.News">
-              <MappingFragment StoreEntitySet="News">
-                <ScalarProperty Name="NewsImgs" ColumnName="NewsImgs" />
-                <ScalarProperty Name="NewsBy" ColumnName="NewsBy" />
-                <ScalarProperty Name="NewsDetails" ColumnName="NewsDetails" />
-                <ScalarProperty Name="NewTitles" ColumnName="NewTitles" />
-                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

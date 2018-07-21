@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EShopping.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace EShopping.Controllers
 {
     public class NewController : Controller
     {
+        ElectricStoreEntities db = new ElectricStoreEntities();
         // GET: New
         public ActionResult News()
         {
-            return View();
+            var lstNew = db.News.OrderByDescending(n => n.NewsId).ToList();
+            return View(lstNew);
         }
     }
 }

@@ -19,5 +19,6 @@ namespace EShopping.Models
         public string NewsDetails { get; set; }
         public string NewsBy { get; set; }
         public string NewsImgs { get; set; }
+        public Nullable<System.DateTime> NewUpdate { get; set; }
     }
 }

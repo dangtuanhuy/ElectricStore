@@ -1345,11 +1345,6 @@
     <Content Include="Areas\Administrator\Views\Sizes\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Sizes\Index.cshtml" />
     <Content Include="Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\News\Index.cshtml" />
     <EntityDeploy Include="Models\ElectricStore.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ElectricStore.Designer.cs</LastGenOutput>
@@ -1367,6 +1362,11 @@
       <DependentUpon>ElectricStore.edmx</DependentUpon>
       <LastGenOutput>ElectricStore.cs</LastGenOutput>
     </Content>
+    <Content Include="Areas\Administrator\Views\News\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\News\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

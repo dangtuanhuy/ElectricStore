@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EShopping.Models;
-using System.IO;
 
 namespace EShopping.Areas.Administrator.Controllers
 {
@@ -47,26 +46,10 @@ namespace EShopping.Areas.Administrator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NewsId,NewsDetails,NewsBy,NewsImgs")] News news)
+        public ActionResult Create([Bind(Include = "NewsId,NewTitles,NewsDetails,NewsBy,NewsImgs,NewUpdate")] News news)
         {
             if (ModelState.IsValid)
             {
-                for (int i = 0; i < Request.Files.Count; i++)
-                {
-                    var file = Request.Files[i];
-
-                    if (file != null && file.ContentLength > 0)
-                    {
-                        if (file.ContentLength > 0)
-                        {
-                            string _FileName = Path.GetFileName(file.FileName);
-
-                            string _path = Path.Combine(Server.MapPath("~/UploadImg/News"), _FileName);
-                            file.SaveAs(_path);
-                            news.NewsImgs = _FileName;
-                        }
-                    }
-                }
                 db.News.Add(news);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -95,7 +78,7 @@ namespace EShopping.Areas.Administrator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NewsId,NewsDetails,NewsBy,NewsImgs")] News news)
+        public ActionResult Edit([Bind(Include = "NewsId,NewTitles,NewsDetails,NewsBy,NewsImgs,NewUpdate")] News news)
         {
             if (ModelState.IsValid)
             {

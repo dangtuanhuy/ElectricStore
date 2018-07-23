@@ -14,7 +14,6 @@
         <EntityTypeShape EntityType="ElectricStoreModel.Employee" Width="1.5" PointX="0.75" PointY="21" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectricStoreModel.Employee_Role" Width="1.5" PointX="6" PointY="22.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectricStoreModel.Menu" Width="1.5" PointX="5.75" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectricStoreModel.News" Width="1.5" PointX="7.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectricStoreModel.Order" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectricStoreModel.OrderDetail" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ElectricStoreModel.Product" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
@@ -40,6 +39,7 @@
         <AssociationConnector Association="ElectricStoreModel.FK_Product_Size" ManuallyRouted="false" />
         <AssociationConnector Association="ElectricStoreModel.FK_Product_Supplier" ManuallyRouted="false" />
         <AssociationConnector Association="ElectricStoreModel.FK_Product_Promotion_Promition" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ElectricStoreModel.News" Width="1.5" PointX="8.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

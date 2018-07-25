@@ -1,4 +1,6 @@
-﻿@model IEnumerable<EShopping.Models.News>
+﻿@model PagedList.IPagedList<EShopping.Models.News>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "News";
@@ -28,15 +30,9 @@
             </div>
         </div>
 }
-        <div class="content-pagenation
-
-            <li><a href="#">Frist</a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><span>....</span></li>
-            <li><a href="#">Last</a></li>
-            <div class="clear"> </div>
+        <div class="content-pagenation">
+            @Html.PagedListPager(Model, page => Url.Action("News",
+             new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
         </div>
     </div>
 </div>

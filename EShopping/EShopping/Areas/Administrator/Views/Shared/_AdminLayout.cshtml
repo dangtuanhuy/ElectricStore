@@ -15,7 +15,7 @@
     <link href="~/Content/LibAdmin/dist/css/adminlte.min.css" rel="stylesheet" />
 
     <!-- iCheck -->
-
+    <link href="~/Content/ConfigImg.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/LibAdmin/plugins/iCheck/flat/blue.css">
     <!-- Morris chart -->
     <link rel="stylesheet" href="~/Content/LibAdmin/plugins/morris/morris.css">
@@ -609,11 +609,24 @@
     <!-- ./wrapper -->
     <!-- jQuery -->
     <script src="~/Content/LibAdmin/plugins/jquery/jquery.min.js"></script>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/LibAdmin/plugins/ckeditor/ckeditor.js"></script>
+    <link href="~/Content/LibAdmin/plugins/ckeditor/skins/moono-lisa/editor.css" rel="stylesheet" />
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
     <link href="~/Content/LibAdmin/plugins/datatables/jquery.dataTables.css" rel="stylesheet" />
     <script src="~/Content/LibAdmin/plugins/datatables/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#tablefillset').DataTable();
+
+
+    });
+    </script>
+    }
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
@@ -635,6 +648,12 @@
     <script src="~/Content/LibAdmin/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- datepicker -->
     <script src="~/Content/LibAdmin/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+    </script>
+
     <!-- Bootstrap WYSIHTML5 -->
     <script src="~/Content/LibAdmin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
     <!-- Slimscroll -->
@@ -647,8 +666,8 @@
     <script src="~/Content/LibAdmin/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/Content/LibAdmin/dist/js/demo.js"></script>
-    
 
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>

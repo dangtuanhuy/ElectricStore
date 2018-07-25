@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EShopping.Models;
+using System.IO;
 
 namespace EShopping.Areas.Administrator.Controllers
 {
@@ -44,12 +45,30 @@ namespace EShopping.Areas.Administrator.Controllers
         // POST: Administrator/News/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [ValidateInput(false)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "NewsId,NewTitles,NewsDetails,NewsBy,NewsImgs,NewUpdate")] News news)
         {
             if (ModelState.IsValid)
             {
+                //Code Upload File Basic
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    var file = Request.Files[i];
+
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        if (file.ContentLength > 0)
+                        {
+                            string _FileName = Path.GetFileName(file.FileName);
+
+                            string _path = Path.Combine(Server.MapPath("~/UploadImg/News"), _FileName);
+                            file.SaveAs(_path);
+                            news.NewsImgs = _FileName;
+                        }
+                    }
+                }
                 db.News.Add(news);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -76,19 +95,63 @@ namespace EShopping.Areas.Administrator.Controllers
         // POST: Administrator/News/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [ValidateInput(false)]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NewsId,NewTitles,NewsDetails,NewsBy,NewsImgs,NewUpdate")] News news)
+        public ActionResult Edit([Bind(Include = "NewsId,NewTitles,NewsDetails,NewsImgs,NewsBy,NewUpdate")] News news)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(news).State = EntityState.Modified;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(news);
         }
+        //Chỉnh sửa hình ảnh
+        public ActionResult EditImg(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            News news = db.News.Find(id);
+            if (news == null)
+            {
+                return HttpNotFound();
+            }
+            return View(news);
+        }
+        [ValidateInput(false)]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditImg([Bind(Include = "NewsId,NewTitles,NewsDetails,NewsImgs,NewsBy,NewUpdate")] News news)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(news).State = EntityState.Modified;
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    var file = Request.Files[i];
 
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        if (file.ContentLength > 0)
+                        {
+                            string _FileName = Path.GetFileName(file.FileName);
+
+                            string _path = Path.Combine(Server.MapPath("~/UploadImg/News"), _FileName);
+                            file.SaveAs(_path);
+                            news.NewsImgs = _FileName;
+                        }
+                    }
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(news);
+        }
         // GET: Administrator/News/Delete/5
         public ActionResult Delete(int? id)
         {

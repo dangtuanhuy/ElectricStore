@@ -5,55 +5,33 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">Details Regions</h2>
 
-<div>
-    <h4>News</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NewTitles)
-        </dt>
+<div class="row">
 
-        <dd>
-            @Html.DisplayFor(model => model.NewTitles)
-        </dd>
+    <div class="col-md-6">
+        <p>@Html.DisplayNameFor(model => model.NewTitles): @Html.DisplayFor(model => model.NewTitles)</p>
+        <p>@Html.DisplayNameFor(model => model.NewsDetails): @Html.DisplayFor(model => model.NewsDetails) </p>
+        <p>@Html.DisplayNameFor(model => model.NewsBy): @Html.DisplayFor(model => model.NewsBy)</p>
+    </div>
+    <div class="col-md-6">
+        <p><img src="~/UploadImg/News/@Model.NewsImgs" class="img-responsive" alt="" /></p>
+        <p>@Html.DisplayNameFor(model => model.NewUpdate): @Html.DisplayFor(model => model.NewUpdate)</p>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NewsDetails)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NewsDetails)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NewsBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NewsBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NewsImgs)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NewsImgs)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NewUpdate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NewUpdate)
-        </dd>
-
-    </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", "News", new { id = Model.NewsId })" class="btn btn-default">
+        <i class="fa fa-flash"></i>
+        <span>
+
+        </span>
+    </a>
+    |
+    <a href="@Url.Action("Index", "News")" class="btn btn-default">
+        <i class="fa fa-sort-alpha-desc"></i>
+        <span>
+
+        </span>
+    </a>
 </p>

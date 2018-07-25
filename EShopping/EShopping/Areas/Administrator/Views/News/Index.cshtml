@@ -5,54 +5,82 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">News</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "News")" class="btn btn-info">
+        <i class="fa fa-floppy-o"></i>
+        <span>
+
+        </span>
+    </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NewTitles)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NewsDetails)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NewsBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NewsImgs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NewUpdate)
-        </th>
-        <th></th>
-    </tr>
+<table class="table table-striped table-bordered" id="tablefillset">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NewTitles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsImgs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewUpdate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.NewTitles)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.NewsBy)
+                </td>
+                <td align="center">
+                    <img src="~/UploadImg/News/@item.NewsImgs" class="img-responsive News_Img" alt="" />
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.NewUpdate)
+                </td>
+                <td align="center">
+                    <a href="@Url.Action("Edit", "News", new { id = item.NewsId })" class="btn btn-success">
+                        <i class="fa fa-flash"></i>
+                        <span>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewTitles)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewsDetails)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewsBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewsImgs)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewUpdate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NewsId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NewsId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NewsId })
-        </td>
-    </tr>
-}
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Details", "News", new { id = item.NewsId })" class="btn btn-primary">
+                        <i class="fa fa-list-alt"></i>
+                        <span>
 
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("Delete", "News", new { id = item.NewsId })" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                        <span>
+
+                        </span>
+                    </a>
+                    |
+                    <a href="@Url.Action("EditImg", "News", new { id = item.NewsId })" class="btn btn-info">
+                        <i class="fa fa-image"></i>
+                        <span>
+
+                        </span>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+@section Scripts {
+   }

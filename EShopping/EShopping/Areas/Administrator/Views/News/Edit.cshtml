@@ -5,7 +5,7 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2 class="text-center">Edit News</h2>
 
 
 @using (Html.BeginForm())
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>News</h4>
+    
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.NewsId)
@@ -29,7 +29,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NewsDetails, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NewsDetails, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.NewsDetails, new { @id = "editor1", htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NewsDetails, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -41,19 +41,13 @@
                 @Html.ValidationMessageFor(model => model.NewsBy, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.NewsImgs, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NewsImgs, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NewsImgs, "", new { @class = "text-danger" })
-            </div>
+            @Html.HiddenFor(model => model.NewsImgs)
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.NewUpdate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NewUpdate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.NewUpdate, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.NewUpdate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -67,9 +61,20 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Index", "News")" class="btn btn-default">
+        <i class="fa fa-sort-alpha-asc"></i>
+        <span>
+
+        </span>
+    </a>
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        CKEDITOR.replace('editor1'
+            );
+    </script>
+
 }

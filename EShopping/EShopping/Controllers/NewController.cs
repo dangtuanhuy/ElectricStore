@@ -22,12 +22,7 @@ namespace EShopping.Controllers
                 lstNew = lstNew.Where(s => s.NewTitles.Contains(searchString)
                                        || s.NewsBy.Contains(searchString));
             }
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    lstNew = lstNew.OrderByDescending(s => s.NewsId);
-                    break;
-            }
+                    lstNew = lstNew.OrderBy(s => s.NewUpdate);
             return View(lstNew);
         }
     }

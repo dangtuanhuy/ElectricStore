@@ -12,6 +12,8 @@ namespace EShopping.Controllers
         private ElectricStoreEntities db = new ElectricStoreEntities();
         public ActionResult Index()
         {
+            var lstProduct = db.Products.Where(n => n.CategoryId == 1 && n.ProductSold == false);
+            ViewBag.ListProduct = lstProduct;
             return View();
         }
 
@@ -38,6 +40,10 @@ namespace EShopping.Controllers
             ViewBag.Categories = db.Categories.ToList();
             //var lstCate = from CAT in db.Categories select CAT;
             return PartialView("_CategoryPartial");
+        }
+        public ActionResult ProductStyle1Partial()
+        {
+            return PartialView();
         }
     }
 }

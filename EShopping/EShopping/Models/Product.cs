@@ -27,12 +27,13 @@ namespace EShopping.Models
         public string ProductDetails { get; set; }
         public Nullable<System.DateTime> ProductUpdate { get; set; }
         public Nullable<int> ProductQty { get; set; }
-        public Nullable<int> ProductSold { get; set; }
+        public Nullable<bool> ProductSold { get; set; }
         public Nullable<int> SupplierId { get; set; }
         public Nullable<int> CategoryId { get; set; }
         public string ProductImg { get; set; }
         public Nullable<int> ColorId { get; set; }
         public Nullable<int> SizeId { get; set; }
+        public Nullable<int> ProductPrice { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Color Color { get; set; }

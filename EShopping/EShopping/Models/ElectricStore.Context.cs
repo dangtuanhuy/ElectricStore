@@ -34,6 +34,7 @@ namespace EShopping.Models
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Employee_Role> Employee_Role { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
@@ -45,6 +46,5 @@ namespace EShopping.Models
         public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<News> News { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ElectricStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ElectricStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="About">
           <Key>
             <PropertyRef Name="AboutId" />
@@ -161,12 +161,13 @@
           <Property Name="ProductDetails" Type="nvarchar" MaxLength="50" />
           <Property Name="ProductUpdate" Type="date" />
           <Property Name="ProductQty" Type="int" />
-          <Property Name="ProductSold" Type="int" />
+          <Property Name="ProductSold" Type="bit" />
           <Property Name="SupplierId" Type="int" />
           <Property Name="CategoryId" Type="int" />
           <Property Name="ProductImg" Type="nvarchar(max)" />
           <Property Name="ColorId" Type="int" />
           <Property Name="SizeId" Type="int" />
+          <Property Name="ProductPrice" Type="int" />
         </EntityType>
         <EntityType Name="Product_Promotion">
           <Key>
@@ -523,7 +524,8 @@
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ElectricStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -640,6 +642,17 @@
           <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MenuDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewTitles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewsDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewsImgs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewUpdate" Type="DateTime" Precision="0" />
+        </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderId" />
@@ -686,12 +699,13 @@
           <Property Name="ProductDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProductUpdate" Type="DateTime" Precision="0" />
           <Property Name="ProductQty" Type="Int32" />
-          <Property Name="ProductSold" Type="Int32" />
+          <Property Name="ProductSold" Type="Boolean" />
           <Property Name="SupplierId" Type="Int32" />
           <Property Name="CategoryId" Type="Int32" />
           <Property Name="ProductImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ColorId" Type="Int32" />
           <Property Name="SizeId" Type="Int32" />
+          <Property Name="ProductPrice" Type="Int32" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Color" Relationship="Self.FK_Product_Color" FromRole="Product" ToRole="Color" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Product" FromRole="Product" ToRole="OrderDetails" />
@@ -993,6 +1007,7 @@
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Employee_Role" EntityType="Self.Employee_Role" />
           <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="News" EntityType="Self.News" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="Products" EntityType="Self.Product" />
@@ -1060,19 +1075,7 @@
             <End Role="Promition" EntitySet="Promitions" />
             <End Role="Product_Promotion" EntitySet="Product_Promotion" />
           </AssociationSet>
-          <EntitySet Name="News" EntityType="ElectricStoreModel.News" />
         </EntityContainer>
-        <EntityType Name="News">
-          <Key>
-            <PropertyRef Name="NewsId" />
-          </Key>
-          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NewTitles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NewsDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NewsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NewsImgs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NewUpdate" Type="DateTime" Precision="0" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1192,6 +1195,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="ElectricStoreModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="NewTitles" ColumnName="NewTitles" />
+                <ScalarProperty Name="NewsDetails" ColumnName="NewsDetails" />
+                <ScalarProperty Name="NewsBy" ColumnName="NewsBy" />
+                <ScalarProperty Name="NewsImgs" ColumnName="NewsImgs" />
+                <ScalarProperty Name="NewUpdate" ColumnName="NewUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="ElectricStoreModel.Order">
               <MappingFragment StoreEntitySet="Order">
@@ -1238,6 +1253,7 @@
                 <ScalarProperty Name="ProductImg" ColumnName="ProductImg" />
                 <ScalarProperty Name="ColorId" ColumnName="ColorId" />
                 <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1325,18 +1341,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="News">
-            <EntityTypeMapping TypeName="ElectricStoreModel.News">
-              <MappingFragment StoreEntitySet="News">
-                <ScalarProperty Name="NewUpdate" ColumnName="NewUpdate" />
-                <ScalarProperty Name="NewsImgs" ColumnName="NewsImgs" />
-                <ScalarProperty Name="NewsBy" ColumnName="NewsBy" />
-                <ScalarProperty Name="NewsDetails" ColumnName="NewsDetails" />
-                <ScalarProperty Name="NewTitles" ColumnName="NewTitles" />
-                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

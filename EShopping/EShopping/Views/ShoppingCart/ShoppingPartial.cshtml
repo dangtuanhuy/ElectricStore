@@ -1,0 +1,12 @@
+﻿@*Dùng ViewBag để thể hiện *@
+<div class="cart">
+    <p>
+        Welcome to our Online Store! <span>Cart:</span>
+        <div id="dd" class="wrapper-dropdown-2">
+            @ViewBag.TongSoLuong item(s) - $@ViewBag.TongTien
+            <ul class="dropdown">
+                <li><a href="@Url.Action("XemGioHang", "ShoppingCart")">Bạn muốn xem ShoppingCart</a></li>
+            </ul>
+        </div>
+    </p>
+</div>

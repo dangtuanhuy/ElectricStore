@@ -11,12 +11,10 @@ namespace EShopping.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class News
     {
         public int NewsId { get; set; }
-        [Display(Name = "TiTle")]
         public string NewTitles { get; set; }
         public string NewsDetails { get; set; }
         public string NewsBy { get; set; }

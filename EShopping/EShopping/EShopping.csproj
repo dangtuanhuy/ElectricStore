@@ -1576,11 +1576,6 @@
     <Content Include="Areas\Administrator\Views\Orders\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Orders\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Orders\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Products\Create.cshtml" />
-    <Content Include="Areas\Administrator\Views\Products\Delete.cshtml" />
-    <Content Include="Areas\Administrator\Views\Products\Details.cshtml" />
-    <Content Include="Areas\Administrator\Views\Products\Edit.cshtml" />
-    <Content Include="Areas\Administrator\Views\Products\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Product_Promotion\Create.cshtml" />
     <Content Include="Areas\Administrator\Views\Product_Promotion\Delete.cshtml" />
     <Content Include="Areas\Administrator\Views\Product_Promotion\Details.cshtml" />
@@ -1629,23 +1624,6 @@
     <Content Include="Areas\Administrator\Views\News\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\News\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\News\Index.cshtml" />
-    <EntityDeploy Include="Models\ElectricStore.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ElectricStore.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ElectricStore.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-      <LastGenOutput>ElectricStore.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ElectricStore.edmx.diagram">
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ElectricStore.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-      <LastGenOutput>ElectricStore.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\LibAdmin\plugins\ckeditor\CHANGES.md" />
     <Content Include="Content\LibAdmin\plugins\ckeditor\LICENSE.md" />
     <Content Include="Content\LibAdmin\plugins\ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -1664,6 +1642,29 @@
     <Content Include="Content\LibAdmin\plugins\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Content\LibAdmin\plugins\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Areas\Administrator\Views\News\EditImg.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Products\EditImg.cshtml" />
+    <EntityDeploy Include="Models\ElectricStore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ElectricStore.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ElectricStore.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ElectricStore.edmx</DependentUpon>
+      <LastGenOutput>ElectricStore.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ElectricStore.edmx.diagram">
+      <DependentUpon>ElectricStore.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ElectricStore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ElectricStore.edmx</DependentUpon>
+      <LastGenOutput>ElectricStore.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1679,6 +1680,7 @@
     <Content Include="UploadImg\News\Img.jpg" />
     <Content Include="UploadImg\News\News.jpg" />
     <Content Include="UploadImg\News\News1.jpg" />
+    <Content Include="UploadImg\Products\camera1.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1730,7 +1732,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Document\CMD\" />
     <Folder Include="Document\Data Flow\" />
-    <Folder Include="UploadImg\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

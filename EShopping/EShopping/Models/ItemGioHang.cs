@@ -9,7 +9,7 @@ namespace EShopping.Models
     {
         public String ProduceCode { get; set; }
         public String ProductName { get; set; }
-        public int ProductPrice { get; set; }
+        public decimal ProductPrice { get; set; }
         public int SizeName { get; set; }
         public int ColerName { get; set; }
         public int ProductQty { get; set; }

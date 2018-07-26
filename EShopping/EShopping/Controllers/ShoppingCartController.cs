@@ -61,7 +61,7 @@ namespace EShopping.Controllers
             }
             return lstGioHang.Sum(n => n.ProductQty);
         }
-        public double TinhTongTien()
+        public decimal TinhTongTien()
         {
             List<ItemGioHang> lstGioHang = Session["GioHang"] as List<ItemGioHang>;
             if (lstGioHang == null)

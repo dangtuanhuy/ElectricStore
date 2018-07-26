@@ -33,7 +33,7 @@ namespace EShopping.Models
         public string ProductImg { get; set; }
         public Nullable<int> ColorId { get; set; }
         public Nullable<int> SizeId { get; set; }
-        public Nullable<int> ProductPrice { get; set; }
+        public Nullable<decimal> ProductPrice { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Color Color { get; set; }

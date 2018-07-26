@@ -118,7 +118,7 @@
           <Property Name="NewTitles" Type="nvarchar" MaxLength="50" />
           <Property Name="NewsDetails" Type="nvarchar(max)" />
           <Property Name="NewsBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="NewsImgs" Type="nvarchar(max)" />
+          <Property Name="NewsImgs" Type="nvarchar(max)" Nullable="false" />
           <Property Name="NewUpdate" Type="date" />
         </EntityType>
         <EntityType Name="Order">
@@ -167,7 +167,7 @@
           <Property Name="ProductImg" Type="nvarchar(max)" />
           <Property Name="ColorId" Type="int" />
           <Property Name="SizeId" Type="int" />
-          <Property Name="ProductPrice" Type="int" />
+          <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Product_Promotion">
           <Key>
@@ -650,7 +650,7 @@
           <Property Name="NewTitles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NewsDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NewsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NewsImgs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsImgs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NewUpdate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Order">
@@ -705,7 +705,7 @@
           <Property Name="ProductImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ColorId" Type="Int32" />
           <Property Name="SizeId" Type="Int32" />
-          <Property Name="ProductPrice" Type="Int32" />
+          <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Color" Relationship="Self.FK_Product_Color" FromRole="Product" ToRole="Color" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Product" FromRole="Product" ToRole="OrderDetails" />

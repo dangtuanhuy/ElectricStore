@@ -43,6 +43,7 @@ namespace EShopping.Controllers
                     return View("ThongBao");
                 }
                 spCheck.ProductQty++;
+                spCheck.ThanhTien = spCheck.ProductQty * spCheck.ProductPrice;
                 return Redirect(strUrl);
             }
             if (sp.ProductSold == true)
@@ -68,7 +69,7 @@ namespace EShopping.Controllers
             {
                 return 0;
             }
-            return lstGioHang.Sum(n => n.ProductPrice);
+            return lstGioHang.Sum(n => n.ThanhTien);
 
         }
 

@@ -12,8 +12,10 @@ namespace EShopping.Models
         public decimal ProductPrice { get; set; }
         public int SizeName { get; set; }
         public int ColerName { get; set; }
+        public int SoLuong { get; set; }
         public int ProductQty { get; set; }
         public String ProductImg { get; set; }
+        public Decimal ThanhTien { get; set; }
 
         public ItemGioHang(String iProduceCode)
         {
@@ -22,7 +24,9 @@ namespace EShopping.Models
                 this.ProduceCode = iProduceCode;
                 Product sp = db.Products.Single(n => n.ProduceCode == iProduceCode);
                 this.ProductName = sp.ProductName;
+                this.ProductQty = 1;
                 this.ProductPrice = sp.ProductPrice.Value;
+                this.ThanhTien = sp.ProductQty.Value * sp.ProductPrice.Value;
                 this.SizeName = sp.SizeId.Value;
                 this.ColerName = sp.ColorId.Value;
                 this.ProductImg = sp.ProductImg;

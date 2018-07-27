@@ -92,5 +92,30 @@ namespace EShopping.Controllers
             return PartialView();
             
         }
+        public ActionResult SuaSoLuong(String ProduceCode, int soluongmoi)
+        {
+            // tìm carditem muon sua
+            List<ItemGioHang> giohang = Session["GioHang"] as List<ItemGioHang>;
+            ItemGioHang itemSua = giohang.FirstOrDefault(m => m.ProduceCode == ProduceCode);
+            if (itemSua != null)
+            {
+                itemSua.ProductQty = soluongmoi; 
+                itemSua.ThanhTien = itemSua.ProductQty * itemSua.ProductPrice;
+            }
+            return RedirectToAction("XemGioHang");
+
+        }
+        public RedirectToRouteResult XoaKhoiGio(String ProduceCode)
+        {
+            List<ItemGioHang> giohang = Session["GioHang"] as List<ItemGioHang>;
+            ItemGioHang itemXoa = giohang.FirstOrDefault(m => m.ProduceCode == ProduceCode);
+            if (itemXoa != null)
+            {
+                giohang.Remove(itemXoa);
+            }
+            return RedirectToAction("XemGioHang");
+        }
+
+
     }
 }

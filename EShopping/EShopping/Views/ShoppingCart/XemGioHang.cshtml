@@ -35,7 +35,7 @@ else
                                 <td>@item.ProductName</td>
                                 <td>
                                     <form action="@Url.Action("SuaSoLuong")" method="get">
-                                        <input type="hidden" name="SanPhamID" value="@item.ProduceCode" />
+                                        <input type="hidden" name="ProduceCode" value="@item.ProduceCode" />
                                         <input type="number" min="1" step="1" name="soluongmoi" value="@item.ProductQty" />
                                         <button type="submit" class="btn btn-primary btn-sm"> Cập nhật </button>
                                     </form>
@@ -43,7 +43,7 @@ else
                                 <td> @item.ProductPrice.ToString("#,##0").Replace(',', '.') $ </td>
                                 <td> @item.ThanhTien.ToString("#,##0").Replace(',', '.') $ </td>
 
-                                <td> <a href="@Url.Action("XoaKhoiGio",new { SanPhamID = item.ProduceCode})" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');" class="btn btn-danger btn-sm">Xóa</a> </td>
+                                <td> <a href="@Url.Action("XoaKhoiGio", new { ProduceCode = item.ProduceCode })" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');" class="btn btn-danger btn-sm">Xóa</a> </td>
                             </tr>
                         }
                         <tr>

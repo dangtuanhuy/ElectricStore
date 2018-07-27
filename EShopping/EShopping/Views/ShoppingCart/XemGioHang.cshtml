@@ -1,9 +1,63 @@
 ﻿@using EShopping.Models
-@model IEnumerable<ItemGioHang>
+@model List<ItemGioHang>
 @{
     ViewBag.Title = "XemGioHang";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+@if (Model == null || Model.Count == 0)
+{
+    <p class="text-info text-center">
+        Giỏ hàng của bạn rỗng!
+    </p>
+}
+else
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Hình Ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ItemGioHang item in Model)
+                        {
+                            <tr>
+                                <td class="text-center"><img src="~/UploadImg/Products/@item.ProductImg" width="50" height="50" /> </td>
+                                @*<td><a target="_blank" href="@Url.Action("ChiTiet", "SanPham", new { id = item.SanPhamID })"> @item.TenSanPham </a> </td>*@
+                                <td>@item.ProductName</td>
+                                <td>
+                                    <form action="@Url.Action("SuaSoLuong")" method="get">
+                                        <input type="hidden" name="SanPhamID" value="@item.ProduceCode" />
+                                        <input type="number" min="1" step="1" name="soluongmoi" value="@item.ProductQty" />
+                                        <button type="submit" class="btn btn-primary btn-sm"> Cập nhật </button>
+                                    </form>
+                                </td>
+                                <td> @item.ProductPrice.ToString("#,##0").Replace(',', '.') $ </td>
+                                <td> @item.ThanhTien.ToString("#,##0").Replace(',', '.') $ </td>
 
-<h2>XemGioHang</h2>
+                                <td> <a href="@Url.Action("XoaKhoiGio",new { SanPhamID = item.ProduceCode})" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');" class="btn btn-danger btn-sm">Xóa</a> </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td class="text-right">Tổng số lượng:</td>
+                            <td> @Model.Sum(m => m.ProductQty) </td>
+                            <td class="text-right">Tổng thành tiền:</td>
+                            <td>@Model.Sum(m => m.ThanhTien).ToString("#,##0").Replace(',', '.') $ </td>
+                        </tr>
+                    </tbody>                  
+                </table>
+            </div>
 
+        </div>
+
+    </div>
+}

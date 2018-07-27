@@ -1681,6 +1681,8 @@
     <Content Include="UploadImg\News\News.jpg" />
     <Content Include="UploadImg\News\News1.jpg" />
     <Content Include="UploadImg\Products\camera1.jpg" />
+    <Content Include="UploadImg\Products\overload1.jpg" />
+    <Content Include="UploadImg\Products\thumb2.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

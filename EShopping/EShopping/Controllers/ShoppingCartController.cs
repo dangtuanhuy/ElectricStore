@@ -73,15 +73,11 @@ namespace EShopping.Controllers
 
         }
 
-
-
-
-
-
         // GET: ShoppingCart
         public ActionResult XemGioHang()
         {
-            return View();
+            List<ItemGioHang> giohang = Session["GioHang"] as List<ItemGioHang>;
+            return View(giohang);
         }
         public ActionResult ShoppingPartial()
         {
